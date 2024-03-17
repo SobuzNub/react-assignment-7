@@ -4,6 +4,8 @@ import './App.css'
 import Header from './components/Header/Header'
 
 import SingleProduct from './SingleProduct';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -18,7 +20,13 @@ function App() {
 
     const handleCook = (p) =>{
       const newHandleCook = [...cook, p];
-      setCook(newHandleCook);
+      setCook(newHandleCook)
+      if(!newHandleCook){
+        setCook(newHandleCook);
+      }
+      else{
+        toast('is exist')
+      }
       
       
     }
@@ -49,9 +57,13 @@ function App() {
                     <h5 >{item.recipe_name}</h5>
                     <h5 className=''>{item.preparing_time}</h5>
                     <h5>{item.calories}</h5>
+                    <button className="w-[80px] h-[50px] bg-[#0BE58A] rounded-full mt-5">Prepare</button>
                   </div>
                 ))}
             </div>
+
+            <ToastContainer />
+
         </div>
       </div>
     </>
