@@ -16,7 +16,7 @@ const Header = () => {
                     </div>
             </div>
 
-            <div className="bg-cover bg-no-repeat w-[1320px] h-[600px] mx-auto mt-8 relative" style={{ backgroundImage: `url("src/assets/image/Rectangle 1.png")`}}>
+            <div className="bg-cover bg-no-repeat w-[1320px] h-[600px] mx-auto mt-8 relative" style={{ backgroundImage: 'url("https://i.ibb.co/980pNjk/Rectangle-1.png")'}}>
                 <div className="absolute text-center mt-40 left-40">
                     <h3 className="text-[#FFFFFF] text-6xl font-bold">Discover an exceptional cooking <br /> class tailored for you!</h3>
                     <p className="text-[#FFFFFF] mt-5 text-2xl">Learn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ <br /> coding problems to become an exceptionally well world-class Programmer.</p>
