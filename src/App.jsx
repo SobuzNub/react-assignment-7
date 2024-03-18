@@ -20,17 +20,26 @@ function App() {
 
     const handleCook = (p) =>{
       const newHandleCook = [...cook, p];
+      // console.log(newHandleCook)
       setCook(newHandleCook)
       if(!newHandleCook){
         setCook(newHandleCook);
       }
       else{
-        toast('is exist')
+        toast('Not in exist')
       }
       
       
+    };
+
+    const handleDelete =(id)=>{
+      const newCook = cook.filter(item => item.id != id);
+      // console.log(newCook)
+      setCook(newCook);
     }
+
     // console.log(cook)
+
 
   return (
     <>
@@ -39,7 +48,7 @@ function App() {
       <div className='main-container flex justify-around mt-16'>
         <div className="cards-container border border-[2px solid black] p-4 grid grid-cols-2 gap-5">
           {
-            recipes.map(pd => <SingleProduct key={pd.id} product={pd} handleCook={handleCook}></SingleProduct>)
+            recipes.map((pd) => (<SingleProduct key={pd.id} product={pd} handleCook={handleCook}></SingleProduct>))
           }
           
         </div>
@@ -52,12 +61,13 @@ function App() {
             </div>
             <div >
               {
-                cook.map(item =>(
+                cook.map((item, index) =>(
                   <div key={item.id} className="cart-info flex justify-around bg-[#FFFFFF] p-5 rounded-3xl mt-3 font-bold">
-                    <h5 >{item.recipe_name}</h5>
-                    <h5 className=''>{item.preparing_time}</h5>
-                    <h5>{item.calories}</h5>
-                    <button className="w-[80px] h-[50px] bg-[#0BE58A] rounded-full mt-5">Prepare</button>
+                    <p className='mt-3'>{index + 1}</p>
+                    <h5 className='mt-3'>{item.recipe_name}</h5>
+                    <h5 className='mt-3'>{item.preparing_time}</h5>
+                    <h5 className='mt-3'>{item.calories}</h5>
+                    <button onClick={()=>handleDelete(item.id)} className="w-[80px] h-[50px] bg-[#0BE58A] rounded-full ">Prepare</button>
                   </div>
                 ))}
             </div>
